@@ -1,0 +1,1494 @@
+@charset "utf-8";
+
+/*全端末（PC・タブレット・スマホ）共通設定
+----------------------------------------------*/
+body,html{
+  width: 100%;
+  height: 100%;
+}
+
+body{
+	margin: 0px;
+	padding: 0px;
+  color: #4e4e4e; /*全体の文字色*/
+	font-family: "游ゴシック","筑紫A丸ゴシック","ヒラギノ角ゴ","メイリオ","TsukuARdGothic-Regular","Hiragino Kaku Gothic Pro","Meiryo, Osaka", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;	/*フォント種類*/
+	font-size: 1rem;	/*文字サイズ*/
+	line-height: 1.5;		/*行間*/
+  letter-spacing: .1rem; 
+	background: #fff;	/*背景色*/
+  -webkit-text-size-adjust: none;
+}
+
+h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,form,figure,form,input,textarea {
+  margin: 0px;
+  padding: 0px;
+  font-size: 100%;
+  font-weight: normal;
+}
+
+ul,li{
+  list-style: none;
+}
+
+img {
+  border: none;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+table {
+  border-collapse:collapse;
+  font-size: 100%;
+  border-spacing: 0;
+}
+
+/*リンク（全般）設定
+-----------------------------------------------*/
+a{
+  color: #4e4e4e;
+  /* transition: 0.1s;	マウスオン時の移り変わるまでの時間設定。 */
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+/* 必須ボタン */
+.text-red{
+  color: #fff;
+  background: #F65952;
+  padding: 4px 6px;
+  margin-left: 8px;
+  border-radius: 4px;
+  font-size: 10px;
+}
+
+/* .h2-title, .subtitle
+-----------------------------------------------*/
+.h2-title{
+  font-family: serif;
+  font-size: 1.8rem;
+  letter-spacing: .3rem;
+  text-align: center;
+  padding-top: 64px;
+}
+
+/* sub-title */
+.subtitle-center{
+  text-align: center;
+}
+
+.sub-title{
+  font-size: 1rem;
+  letter-spacing: .2rem;
+  position: relative;
+  display: inline-block;
+  padding: 0 50px;
+}
+
+.sub-title:before,
+.sub-title:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 30px;
+  height: 1px;
+  background-color: #666;
+}
+
+.sub-title:before {
+  left: 0;
+}
+
+.sub-title:after {
+  right: 0;
+}
+
+/* .button1
+-----------------------------------------------*/
+.button1{
+  font-size: 1.3rem;
+}
+
+.arrow {
+  width: 130px;
+  height: 16px;
+  margin-top: -12px;
+  border-right: solid 1px #4e4e4e;
+  border-bottom: solid 1px #4e4e4e;
+  transform: skew(45deg);
+}
+
+.button1:hover{
+  opacity: .8;
+  transform: translate(8px);
+} 
+
+/* .button2
+-----------------------------------------------*/
+.button2{
+  font-size: 1.2rem;
+  border: 1px solid #4e4e4e;
+  padding: 6px 10px;
+  position: relative;
+  display: block;
+  width: 320px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ボタンの右三角 */
+.button2:after{
+  content: "";
+  display:inline-block;
+  width: 0;
+  height: 0;
+  border-top: solid 6px transparent;
+  border-right: solid 6px transparent;
+  border-bottom: solid 6px transparent;
+  border-left: solid 6px #666;
+  position: absolute;
+  top: 40%;
+  right: 32px;
+}
+
+.button2:hover{
+  background: #fff3e6;
+  color: #333;
+  letter-spacing: .2rem;
+  transition:.2s all;
+}
+
+.button2:hover:after{
+  transition:.2s all;
+  right: 24px;
+}
+
+/* ページトップボタン
+--------------------------------------- */
+#page-top a{
+	display: flex;
+	justify-content:center;
+	align-items:center;
+	background: #ffb362;
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase; 
+	text-decoration: none;
+	font-size:0.8rem;
+	transition:all 0.3s;
+}
+
+#page-top a:hover{
+	opacity: .8;
+}
+
+#page-top {
+	position: fixed;
+	right: 24px;
+	bottom: 24px;
+	z-index: 2;/*はじめは非表示*/
+	opacity: 0;
+	transform: translateY(100px);
+}
+
+/* 上に上がる動き */
+#page-top.UpMove{
+	animation: UpAnime 1s forwards;
+}
+@keyframes UpAnime{
+  from {
+    opacity: 0;
+	transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+	transform: translateY(0);
+  }
+}
+
+/* 下に下がる動き */
+#page-top.DownMove{
+	animation: DownAnime 1s forwards;
+}
+@keyframes DownAnime{
+  from {
+  	opacity: 1;
+	transform: translateY(0);
+  }
+  to {
+  	opacity: 1;
+	transform: translateY(100px);
+  }
+}
+
+/* wrapper
+---------------------------------------------*/
+.wrapper{
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* ***************************************** */
+/* *******   ヘッダーメニュー(PC)    ******* */
+/* ***************************************** */
+header{
+  position: fixed;
+  height: 70px;
+  width: 100%;
+  background: rgba(255, 255, 255, .9);
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+header .header-menu{
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ヘッダーロゴ(PC) */
+header .header-menu h1.logo{
+  font-size: 1.3rem;
+  letter-spacing: .2rem;
+  line-height: 1.2;
+  margin: 8px 0 0 11%;
+}
+
+header .header-menu h1.logo span{
+  font-size: 1rem;
+  letter-spacing: .1rem;
+}
+
+header .header-menu h1.logo a:hover{
+  opacity: .8;
+}
+
+/* ヘッダーメニュー(PC) */
+header .header-menu .pc-menu{
+  margin: 20px 14% 0 0;
+}
+
+header .header-menu .pc-menu ul{
+  display: flex;
+}
+
+header .pc-menu ul li a{
+  font-size: 1.2rem;
+  margin: 0 16px 0;
+  padding: 6px 4px 12px;
+}
+
+header .pc-menu ul li a:hover{
+  opacity: .8;
+  border-bottom: 2px solid #333;
+}
+
+/* ヘッダーインスタアイコン */
+header .pc-menu ul li:last-child{
+  width: 26px;
+  margin-top: -2px;
+}
+
+header .pc-menu ul li:last-child a{
+  padding: 0;
+}
+
+header .pc-menu ul li:last-child a:hover{
+  border-bottom: none;
+}
+
+/* SP用ハンバーガーメニュー,g-nav非表示 */
+.openbtn, #g-nav ul{
+  display: none;
+}
+
+/* ***************************************** */
+/* *****         Homeページ(PC)        ***** */
+/* ***************************************** */
+
+/* ファーストビュー(home)(PC)
+******************************************** */
+#home .home-flex{
+  display: flex;
+  margin: 140px 8% 100px;
+}
+
+/* タイトルパート(左カラム) */
+#home .flex-left{
+  width: 38%;
+  margin: 260px 0 0 0;
+}
+
+#home .flex-left h4{
+  font-size: 1.2rem;
+}
+
+#home .flex-left h2{
+  font-size: 2.2rem;
+  letter-spacing: .2rem;
+  font-family: serif;
+}
+
+/* ホーム画像(右カラム) */
+#home .flex-right{
+  width: 62%;
+}
+
+#home .sp-image{
+  display: none;
+}
+
+/* トップページAbout(PC)
+******************************************** */
+#about{
+  background: #fff3e6;
+}
+
+/* flex全体
+************************************* */
+#about .about-flex{
+  display: flex;
+  margin: 40px 8% 0;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 80px;
+}
+
+/* アイコン画像(左カラム)(PC)
+********************************* */
+#about .about-flex .flex-left{
+  width: 40%;
+  text-align: right;
+}
+
+#about .about-flex .flex-left img{
+  width: 350px;
+  border-radius: 50%;
+  margin-right: 100px;
+}
+
+/* Aboutテキスト(右カラム)(PC)
+*********************************** */
+#about .about-flex .flex-right{
+  width: 420px;
+  background: #fff;
+}
+
+#about .about-flex .flex-right p{
+  padding: 40px 40px 30px;
+}
+
+#about .about-flex .flex-right .button1{
+  margin: 0 0 30px 250px;
+}
+
+/* トップページWorks(PC)
+************************************ */
+#works{
+  padding-bottom: 60px;
+}
+
+/* 制作物グリッド(PC)
+************************************ */
+#works .grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  gap: 4px;
+  margin: 40px 80px 20px;
+  padding-top: 20px;
+}
+
+#works .grid .item{
+  overflow: hidden;
+  height: 100%;
+  padding: 16px 16px 6px;
+}
+
+#works .grid .item:hover{
+  background: #fff3e6;
+  border-radius: 2px;
+  transition:.5s all;
+}
+
+#works .grid .item p{
+  text-align: center;
+  margin-top: 5px;
+}
+
+#works .grid .item img{
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+#works .grid .item img:hover{
+  transform:scale(1.05,1.05);
+  transition:.5s all;
+}
+
+/* トップページContact(PC)
+************************************ */
+#contact{
+  background: #fff3e6;
+  padding-bottom: 40px;
+}
+
+#contact p{
+  text-align: center;
+  margin: 30px auto;
+  line-height: 2rem;
+}
+
+/* フォーム(PC) */
+#contact .form{
+  width: 500px;
+  margin: 0 auto;
+}
+
+#contact .form div{
+  margin: 15px auto;
+  text-align: center;
+}
+
+#contact .form input[type="text"],
+#contact .form input[type="email"],
+#contact .form textarea {
+  background: #fff;
+  width: 100%;
+  margin: 6px auto 0;
+  padding: 6px;
+  letter-spacing: .1rem;
+}
+
+#contact .form input[type="text"]:hover,
+#contact .form input[type="email"]:hover,
+#contact .form textarea:hover{
+  background: #EDF9FF;
+  transition: .3s all;
+}
+
+#contact .form .button2:hover{
+  background: #fff;
+} 
+
+/* フッター(PC)
+********************************** */
+footer{
+  background: #fff3e6;
+  text-align: center;
+  padding: 16px 0;
+}
+
+/* ***************************************** */
+/* *****         Aboutページ(PC)       ***** */
+/* ***************************************** */
+#about-top{
+  background: #fff3e6;
+  margin-top: 40px;
+  padding-bottom: 60px;
+}
+
+/* flex(PC)
+***************************** */
+#about-top .flex{
+  display: flex;
+  margin: 40px 8% 0;
+  justify-content: center;
+  align-items: center;
+}
+
+/* アイコン画像(左カラム)(PC)
+********************************* */
+#about-top .flex .flex-left{
+  width: 40%;
+  text-align: right;
+}
+
+#about-top .flex .flex-left img{
+  width: 380px;
+  border-radius: 50%;
+  margin-right: 60px;
+}
+
+/* Aboutテキスト(右カラム)(PC)
+********************************** */
+#about-top .flex .flex-right{
+  width: 450px;
+  background: #fff;
+}
+
+/* 名前(右カラム) */
+#about-top .flex .flex-right .myname{
+  text-align: center;
+  margin-top: 20px;
+}
+
+#about-top .flex .flex-right .myname small{
+  font-size: .9rem;
+  letter-spacing: .2rem;
+}
+
+#about-top .flex .flex-right .myname h3{
+  font-size: 1.8rem;
+  letter-spacing: .3rem;
+}
+
+#about-top .flex .flex-right p{
+  padding: 20px 50px 40px;
+  line-height: 1.8;
+}
+
+/* career(PC)
+***************************************** */
+#career{
+  margin: 0 80px;
+  padding-bottom: 60px;
+}
+
+#career .subtitle-center{
+  margin-bottom: 40px;
+}
+
+#career .career-flex{
+  display: flex;
+}
+
+#career .career-flex .career-left{
+  text-align: right;
+  width: 10em;
+  padding: 0.5em 3em 0.5em 0.5em;
+  position: relative;
+}
+
+#career .career-flex .career-right{
+  width: calc(100% - 10em);
+  padding: 0.5em 3em 1.5em;
+  border-left: 2px solid #ccc;
+}
+
+#career .career-flex .career-right h4{
+  font-weight: bolder;
+}
+
+#career .career-flex .career-left:after{
+  content: '●';
+  position: absolute;
+  right: -0.62em;
+  top: 5px;
+  font-size: 20px;
+  color: #ffb362;
+}
+
+/* Skills(PC)
+***************************************** */
+#skills{
+  background: #fff3e6;
+  padding-bottom: 80px;
+}
+
+#skills .grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 50px;
+  margin: 60px auto 0;
+}
+
+#skills .grid .item{
+  background: #fff;
+}
+
+#skills .grid .item h3{
+  text-align: center;
+  font-family: serif;
+  font-size: 1.2rem;
+  letter-spacing: .2rem;
+  margin: 18px 0;
+}
+
+#skills .grid p{
+  padding: 0 24px 22px 22px;
+}
+
+/* Future(PC)
+***************************************** */
+#future{
+  padding-bottom: 60px;
+}
+
+#future .flex{
+  display: flex;
+  margin: 50px 80px 0;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 画像(左カラム)
+********************************** */
+#future .flex .flex-left{
+  width: 50%;
+  text-align: right;
+  margin-right: 80px;
+}
+
+#future .flex .flex-left img{
+  width: 450px;
+}
+
+/* テキスト(右カラム)
+********************************** */
+#future .flex .flex-right{
+  width: 50%;
+}
+
+/* ********************************************* */
+/* *****      archive-work ページ(PC)      ***** */
+/* ********************************************* */
+.works-list{
+  margin-top: 50px;
+}
+
+/* カテゴリー */
+.works-list .category{
+  text-align: center;
+  margin: 40px auto 0;
+  font-family: serif;
+  font-size: 1.4rem;
+  letter-spacing: 4px;
+}
+
+.works-list .category a:hover{
+  opacity: .9;
+  color: #ffb362;
+}
+
+/* 各カテゴリータイトル */
+.works-list .work-category{
+  text-align: center;
+}
+
+.works-list .work-category h4{
+  position: relative;
+  display: inline-block;
+  font-size: 1.6rem;
+  font-family: serif;
+  font-weight: normal;
+  letter-spacing: .2rem;
+  padding-top:  64px;
+}
+
+/* オレンジ下線 */
+.works-list .work-category h4:before{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 102px;
+  border-bottom: 2px solid #ffb362;
+  width : calc(100% - 20px) ;
+  margin: 0 auto;
+}
+
+/* ********************************************* */
+/* *****       single-work ページ(PC)      ***** */
+/* ********************************************* */
+.single-work{
+  margin-top: 80px;
+}
+
+/*  制作物画像・タイトルパート(PC)
+*****************************************/
+/* カテゴリー */
+.single-work .work-category{
+  text-align: center;
+}
+
+.single-work .work-category h4{
+  position: relative;
+  display: inline-block;
+  font-size: 1.6rem;
+  font-family: serif;
+  font-weight: normal;
+  letter-spacing: .3rem;
+  margin-top: 20px;
+}
+
+.single-work .work-category h4:before{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 40px;
+  border-bottom: 2px solid #ffb362;
+  width : calc(100% - 20px) ;
+  margin: 0 auto;
+}
+
+/* 制作物画像 */
+.single-work .work-img{
+  width: 60%;
+  margin: 40px auto 20px;
+}
+
+/* 制作物タイトル */
+.single-work h3{
+  text-align: center;
+  font-size: 1.3rem;
+  letter-spacing: .2rem;
+  margin: 20px 0 40px;
+}
+
+/*  制作物説明パート(PC)
+*****************************************/
+#work-explain{
+  width: 58%;
+  margin: 20px auto;
+}
+
+#work-explain .workexplain-flex{
+  display: flex; 
+  margin-bottom: 30px;
+}
+
+/* 左カラム */
+#work-explain .workexplain-left{
+  text-align: left;
+  width: 25%;
+  color: #666;
+}
+
+/* 右カラム */
+#work-explain .workexplain-right{
+  width: 75%;
+}
+
+/* 詳細ボタン */
+#work-explain .button3{
+  text-align: center;
+  margin: 50px 0 30px;
+}
+
+#work-explain .button3 a{
+  font-size: 1.1rem;
+  border: 1px solid #4e4e4e;
+  padding: 6px 10px;
+  position: relative;
+  display: block;
+  width: 450px;
+  margin: 0 auto;
+}
+
+#work-explain .button3 a:hover{
+  background: #fff3e6;
+  transition: .3s all;
+  letter-spacing: .2rem;
+}
+
+/* もどるリンク */
+#work-explain .back{
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+#work-explain .back a:hover{
+  color: #f8a246;
+}
+
+/* ********************************************* */
+/* *****         404エラーページ(PC)       ***** */
+/* ********************************************* */
+.error{
+  margin-top: 180px;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.error h5{
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.error p{
+  margin: 0 20px;
+}
+
+.error ul{
+  margin-top: 50px;
+}
+
+.error ul li{
+  margin-top: 14px;
+  font-size: 1.4rem;
+}
+
+
+/*---------------------------------------------------------------
+  レスポンシブ対応
+----------------------------------------------------------------*/
+/*タブレット用 (画面幅1024px以下の設定)
+----------------------------------------------------------------*/
+@media screen and (max-width:1024px){
+  /* 共通設定
+  ************************************************************* */
+  /* .h2-title, .subtitle
+  -----------------------------------------------*/
+  .h2-title{
+    font-size: 1.7rem;
+    padding-top: 40px;
+  }
+
+  /* .button2
+  -----------------------------------------------*/
+  .button2{
+    font-size: 1.1rem;
+    padding: 6px 10px;
+    position: relative;
+    display: block;
+    width: 85%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* ************************************************* */
+  /* *******   ヘッダーメニュー(タブレット)    ******* */
+  /* ************************************************* */
+  header{
+    height: 60px;
+  }
+
+  /* ヘッダーロゴ(タブレット) */
+  header .header-menu h1.logo{
+    font-size: 1.2rem;
+    margin: 8px 0 0 6%;
+  }
+
+  header .header-menu h1.logo span{
+    font-size: 1rem;
+  }
+
+  /* ヘッダーメニュー(タブレット) */
+  header .header-menu .pc-menu{
+    margin: 20px 6% 0 0;
+  }
+
+  header .pc-menu ul li a{
+    font-size: 1.1rem;
+    margin: 0 14px 0;
+  }
+
+  /* ***************************************** */
+  /* *****         Homeページ(タブレット)        ***** */
+  /* ***************************************** */
+  /* ファーストビュー(home)(タブレット)
+  ******************************************** */
+  #home .home-flex{
+    margin: 80px 2% 50px;
+  }
+
+  /* タイトルパート(左カラム) */
+  #home .flex-left{
+    width: 40%;
+    margin: 140px 0 0 0;
+  }
+
+  #home .flex-left h4{
+    font-size: 1rem;
+  }
+  
+  #home .flex-left h2{
+    font-size: 2rem;
+    letter-spacing: .1rem;
+  }
+
+  /* ホーム画像(右カラム) */
+  #home .flex-right{
+    width: 60%;
+  }
+
+  /* トップページAbout(タブレット)
+  ******************************************** */
+
+  /* flex全体
+  ************************************* */
+  #about .about-flex{
+    margin: 30px 4% 0;
+  }
+
+  /* アイコン画像(左カラム)(タブレット)
+  ********************************* */
+  #about .about-flex .flex-left img{
+    width: 320px;
+  }
+  /* Aboutテキスト(右カラム)(タブレット)
+  *********************************** */
+  #about .about-flex .flex-right{
+    width: 400px;
+    background: #fff;
+  }
+
+  #about .about-flex .flex-right p{
+    padding: 30px 30px 20px;
+  }
+
+  #about .about-flex .flex-right .button1{
+    margin: 0 0 30px 220px;
+  }
+
+  /* トップページWorks(タブレット)
+  ************************************ */
+  /* 制作物グリッド(タブレット)
+  ************************************ */
+  #works .grid{
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    margin: 30px 50px 20px;
+    padding-top: 20px;
+  }
+
+  /* トップページContact(タブレット)
+  ************************************ */
+  #contact p{
+    margin: 20px auto;
+  }
+
+  /* フォーム(タブレット) */
+  #contact .form{
+    width: 520px;
+  }
+
+  /* ***************************************** */
+  /* *****         Aboutページ(タブレット)       ***** */
+  /* ***************************************** */
+  /* flex(タブレット)
+  ***************************** */
+  #about-top .flex{
+    margin: 40px 2% 0;
+  }
+
+  /* アイコン画像(左カラム)(タブレット)
+  ********************************* */
+  #about-top .flex .flex-left{
+    width: 45%;
+  }
+
+  /* Aboutテキスト(右カラム)(タブレット)
+  ********************************** */
+  #about-top .flex .flex-right{
+    width: 55%;
+    width: 400px;
+  }
+
+  #about-top .flex .flex-right p{
+    padding: 10px 35px 40px;
+  }
+
+  /* career(タブレット)
+  **************************************** */
+  #career{
+    margin: 0 20px;
+    padding-bottom: 60px;
+  }
+
+  /* Skills(タブレット)
+  ***************************************** */
+  #skills{
+    padding-bottom: 50px;
+  }
+
+  #skills .grid{
+    grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
+    gap: 12px;
+    margin: 60px auto 0;
+  }
+
+  #skills .grid p{
+    padding: 0 14px 16px 14px;
+    overflow-wrap: break-word;
+  }
+
+  /* Future(タブレット)
+  ***************************************** */
+  #future .flex{
+    margin: 50px 60px 0;
+  }
+
+  /* 画像(左カラム)
+  ********************************** */
+  #future .flex .flex-left{
+    margin-right: 30px;
+  }
+
+  /* テキスト(右カラム)
+  ********************************** */
+  #future .flex .flex-right{
+    width: 50%;
+  }
+
+  /* ********************************************* */
+  /* *****   archive-work ページ(タブレット)  **** */
+  /* ********************************************* */
+  /* カテゴリー */
+  .works-list .category{
+    margin: 30px auto 0;
+  }
+
+  /* 各カテゴリータイトル */
+  .works-list .work-category h4{
+    padding-top: 55px;
+  }
+
+  .works-list .work-category h4:before{
+    top: 92px;
+  }
+
+  /* ************************************************ */
+  /* *****    single-work ページ(タブレット)    ***** */
+  /* ************************************************ */
+  /*  制作物画像・タイトルパート(タブレット)
+  *****************************************/
+  /* 制作物画像 */
+  .single-work .work-img{
+    width: 80%;
+  }
+
+  /*  制作物説明パート(タブレット)
+  *****************************************/
+  #work-explain{
+    width: 75%;
+  }
+}
+
+/*スマホ用 (画面幅480px以下の設定)
+--------------------------------------------------------------*/
+@media screen and (max-width:480px){
+  /* 共通設定
+  ***************************************************** */
+  /* .h2-title, .subtitle
+  -----------------------------------------------*/
+  .h2-title{
+    font-size: 1.4rem;
+    padding-top: 26px;
+  }
+
+  .sub-title{
+    font-size: .9rem;
+    letter-spacing: .1rem;
+    padding: 0 40px;
+  }
+
+  /* wrapper
+  ---------------------------------------------*/
+  .wrapper{
+    width: 95%;
+  }
+
+  /* ************************************************* */
+  /* *******     ヘッダーメニュー(スマホ)      ******* */
+  /* ************************************************* */
+  /* ヘッダーメニュー非表示(スマホ) */
+  header .header-menu .pc-menu{
+    display: none;
+  }
+
+  /*ハンバーガーメニューボタン
+  ******************************************************/
+  .openbtn{
+    display: block;
+    position:fixed;
+    z-index: 9999;/*ボタンを最前面に*/
+    top: 6px;
+    right: 30px;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+  }
+
+  /*×に変化*/	
+  .openbtn span{
+    display: inline-block;
+    transition: all .4s;
+    position: absolute;
+    left: 12px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: #666;
+    width: 70%;
+  }
+
+  .openbtn span:nth-of-type(1) {
+    top:12px;	
+  }
+  
+  .openbtn span:nth-of-type(2) {
+    top:22px;
+  }
+  
+  .openbtn span:nth-of-type(3) {
+    top:32px;
+  }
+
+  .openbtn.active span:nth-of-type(1) {
+    top: 18px;
+    left: 18px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 65%;
+  }
+
+  .openbtn.active span:nth-of-type(2) {
+    opacity: 0;
+  }
+
+  .openbtn.active span:nth-of-type(3){
+    top: 30px;
+    left: 18px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 65%;
+  }
+
+  /* グローバルナビゲーション
+  ***************************************************** */
+  #g-nav{
+    /*position:fixed;にし、z-indexの数値を小さくして最背面へ*/
+    position:fixed;
+    z-index: -1;
+    opacity: 0;/*はじめは透過0*/
+    /*ナビの位置と形状*/
+    top: -120%; 
+    width:100%;
+    height: 100vh;/*ナビの高さ*/
+    background: #fff3e6;
+    /*動き*/
+    transition: all 1s;
+  }
+
+  /*アクティブクラスがついたら透過なしにして最前面へ*/
+  #g-nav.panelactive{
+    opacity: .95;
+    z-index:999;
+    top: 0;
+  }
+
+  /*ナビゲーション*/
+  #g-nav ul {
+    display: none;
+    /*ナビゲーション天地中央揃え*/
+    position: absolute;
+    z-index: 999;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+  }
+
+  #g-nav.panelactive ul {
+    display: block;
+  }
+
+  #g-nav li{
+    text-align: center; 
+  }
+  
+  #g-nav li a{
+    display: block;
+    color: #333;
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    font-weight: bold;
+    padding: 18px;
+  }
+
+  /* インスタアイコン */
+  #g-nav li:last-child img{
+    width: 30px;
+  }
+
+  /* header */
+  header{
+    height: 55px;
+  }
+
+  /* ヘッダーロゴ(スマホ) */
+  header .header-menu h1.logo{
+    font-size: 1.15rem;
+    margin: 4px 0 0 6%;
+  }
+
+  header .header-menu h1.logo span{
+    font-size: .8rem;
+  }
+
+  /* ********************************************* */
+  /* *****         Homeページ(スマホ)        ***** */
+  /* ********************************************* */
+  /* ファーストビュー(home)(スマホ)
+  ******************************************** */
+  #home .home-flex{
+    flex-direction: column-reverse;
+    margin: 60px 0% 16px;
+  }
+
+  #home .wrapper{
+    width: 100%;
+    margin: 0;
+  }
+
+  /* ホーム画像(右カラム) */
+  #home .flex-right{
+    width: 100%;
+  }
+
+  #home .pc-image{
+    display: none;
+  }
+
+  #home .sp-image{
+    display: block;
+  }
+
+  /* タイトルパート(左カラム) */
+  #home .flex-left{
+    width: 90%;
+    margin: 14px 0 0 4%;
+  }
+
+  #home .flex-left h4{
+    font-size: .9rem;
+  }
+
+  #home .flex-left h2{
+    font-size: 1.7rem;
+  }
+
+  #home .flex-left p{
+    letter-spacing: normal;
+  }
+
+  /* トップページAbout(スマホ)
+  ******************************************** */
+  #about .about-flex{
+    flex-direction: column;
+    margin: 40px 4% 0;
+    padding-bottom: 50px;
+  }
+
+  /* アイコン画像(左カラム)(スマホ)
+  ********************************* */
+  #about .about-flex .flex-left{
+    width: 80%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  #about .about-flex .flex-left img{
+    margin-right: 0;
+  }
+
+  /* Aboutテキスト(右カラム)(スマホ)
+  *********************************** */
+  #about .about-flex .flex-right{
+    width: 100%;
+    background: #fff;
+  }
+
+  #about .about-flex .flex-right .button1{
+    margin: 0 0 30px 50%;
+  }
+
+  /* トップページWorks(スマホ)
+  ************************************ */
+  /* 制作物グリッド(スマホ)
+  ************************************ */
+  #works .grid{
+    gap: 20px;
+    margin: 20px 10px 30px;
+  }
+
+  /* トップページContact(スマホ)
+  ************************************ */ 
+  /* フォーム(スマホ) */
+  #contact .form{
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  /* 送信ボタン */
+  #contact .form .button2{
+    width: 100%;
+  } 
+
+  /* ********************************************* */
+  /* *****         Aboutページ(スマホ)       ***** */
+  /* ********************************************* */
+  #about-top{
+    margin-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  /* flex(スマホ)
+  ***************************** */
+  #about-top .flex{
+    flex-direction: column;
+    margin: 30px 0% 0;
+  }
+
+  /* アイコン画像(左カラム)(スマホ)
+  ********************************* */
+  #about-top .flex .flex-left{
+    width: 80%;
+    text-align: right;
+    margin-bottom: 10px;
+  }
+
+  #about-top .flex .flex-left img{
+    margin-right: 0;
+  }
+
+  /* Aboutテキスト(右カラム)(スマホ)
+  ********************************* */
+  #about-top .flex .flex-right{
+    width: 95%;
+  }
+
+  #about-top .flex .flex-right p{
+    padding: 20px 20px 30px;
+    line-height: 1.8;
+  }
+
+  /* career(スマホ)
+  ***************************************** */
+  #career{
+    margin: 0 0px;
+    margin-bottom: 20px;
+  }
+
+  #career .career-flex .career-left{
+    width: 25%;
+    padding: .5em 0em 0.5em 0em;
+    text-align: center;
+  }
+  
+  #career .career-flex .career-right{
+    width: 75%;
+    padding: 0.5em 0em 1.6em 1.4em;
+  }
+
+  /* Skills(スマホ)
+  ***************************************** */
+  #skills .grid{
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 25px;
+    margin: 30px 10px 0;
+  }
+
+  /* Future(スマホ)
+  ***************************************** */
+  #future .flex{
+    flex-direction: column;
+    margin: 30px 0 0;
+  }
+
+  /* 画像(左カラム)
+  ******************************** */
+  #future .flex .flex-left{
+    width: 85%;
+    margin-right: 0;
+  }
+
+  /* テキスト(右カラム)
+  ******************************** */
+  #future .flex .flex-right{
+    width: 85%;
+    margin-top: 14px;
+  }
+
+  /* ********************************************* */
+  /* *****    archive-work ページ(スマホ)    ***** */
+  /* ********************************************* */
+  .works-list{
+    margin-top: 70px;
+  }
+
+  /* カテゴリー */
+  .works-list .category{
+    margin: 20px auto 0;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+  }
+
+  /* 各カテゴリータイトル */
+  .works-list .work-category h4{
+    font-size: 1.4rem;
+  }
+
+  /* オレンジ下線 */
+  .works-list .work-category h4:before{
+    top: 88px;
+  }
+
+  /* ********************************************* */
+  /* *****     single-work ページ(スマホ)    ***** */
+  /* ********************************************* */
+  .single-work{
+    margin-top: 60px;
+  }
+
+  /*  制作物画像・タイトルパート(スマホ)
+  ********************************************/
+  /* 制作物画像 */
+  .single-work .work-img{
+    width: 95%;
+    margin: 20px auto;
+  }
+
+  /* 制作物タイトル */
+  .single-work h3{
+    font-size: 1.2rem;
+    margin: 10px 0 30px;
+  }
+
+  /*  制作物説明パート(スマホ)
+  *****************************************/
+  #work-explain{
+    width: 90%;
+  }
+
+  #work-explain .workexplain-flex{
+    display: flex; 
+    margin-bottom: 30px;
+  }
+
+  /* 左カラム */
+  #work-explain .workexplain-left{
+    text-align: left;
+    width: 28%;
+    color: #666;
+  }
+
+  #work-explain .workexplain-left .sp-br{
+    display: block;
+  }
+
+  /* 右カラム */
+  #work-explain .workexplain-right{
+    width: 72%;
+  }
+
+  /* 詳細ボタン */
+  #work-explain .button3{
+    margin: 20px 0;
+  }
+
+  #work-explain .button3 a{
+    padding: 6px 10px;
+    width: 100%;
+  }
+
+  /* もどるリンク */
+  #work-explain .back{
+    margin-bottom: 60px;
+  }
+}
